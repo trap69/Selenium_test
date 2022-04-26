@@ -1,6 +1,7 @@
 // Include the chrome driver
 // require("chromedriver.exe");
-var webdriver = require('selenium-webdriver');
+require('chromedriver');
+
 
 // Include selenium webdriver
 let swd = require("selenium-webdriver");
@@ -12,7 +13,7 @@ let { email, pass } = require("credentials.json");
 
 // Step 1 - Opening the geeksforgeeks sign in page
 let tabToOpen =
-    tab.get("https://auth.geeksforgeeks.org/");
+    tab.get("https://www.manodienynas.lt/1/lt/public/public/login");
 tabToOpen
     .then(function () {
 
@@ -27,7 +28,7 @@ tabToOpen
 
         // Step 2 - Finding the username input
         let promiseUsernameBox =
-            tab.findElement(swd.By.css("#luser"));
+            tab.findElement(swd.By.id("d1_username"));
         return promiseUsernameBox;
     })
     .then(function (usernameBox) {
@@ -40,12 +41,12 @@ tabToOpen
     .then(function () {
         console.log(
             "Username entered successfully in" +
-            "'login demonstration' for GEEKSFORGEEKS"
+            "Dienynas"
         );
 
         // Step 4 - Finding the password input
         let promisePasswordBox =
-            tab.findElement(swd.By.css("#password"));
+            tab.findElement(swd.By.id("d1_password"));
         return promisePasswordBox;
     })
     .then(function (passwordBox) {
@@ -58,12 +59,12 @@ tabToOpen
     .then(function () {
         console.log(
             "Password entered successfully in" +
-            " 'login demonstration' for GEEKSFORGEEKS"
+            "Dienynas"
         );
 
         // Step 6 - Finding the Sign In button
         let promiseSignInBtn = tab.findElement(
-            swd.By.css(".btn.btn-green.signin-button")
+            swd.By.id("login_submit")
         );
         return promiseSignInBtn;
     })
